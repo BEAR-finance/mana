@@ -1,5 +1,14 @@
-const MANACrowdsale = artifacts.require("./MANACrowdsale.sol");
+// const { artifacts } = require("hardhat");
 
-module.exports = function(deployer) {
-  // deployer.deploy(MANACrowdsale);
-};
+const USDToken = artifacts.require('./USDToken.sol');
+
+module.exports = function (deployer, network, accounts) {
+  console.log(network, accounts)
+  return deployer.then(() => {
+    return deployContracts(deployer, network, accounts)
+  })
+}
+
+async function deployContracts(deployer, network, accounts) {
+  let usd = await deployer.deploy(USDToken);
+}

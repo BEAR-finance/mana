@@ -5,7 +5,7 @@ import "zeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "zeppelin-solidity/contracts/crowdsale/FinalizableCrowdsale.sol";
 import "./WhitelistedCrowdsale.sol";
 import "./MANAContinuousSale.sol";
-import "./MANAToken.sol";
+import "./USDToken.sol";
 
 contract MANACrowdsale is WhitelistedCrowdsale, CappedCrowdsale, FinalizableCrowdsale {
 
@@ -59,11 +59,11 @@ contract MANACrowdsale is WhitelistedCrowdsale, CappedCrowdsale, FinalizableCrow
 
         continuousSale = createContinuousSaleContract();
 
-        MANAToken(token).pause();
+        USDToken(token).pause();
     }
 
     function createTokenContract() internal returns(MintableToken) {
-        return new MANAToken();
+        return new USDToken();
     }
 
     function createContinuousSaleContract() internal returns(MANAContinuousSale) {
@@ -147,12 +147,12 @@ contract MANACrowdsale is WhitelistedCrowdsale, CappedCrowdsale, FinalizableCrow
 
     function unpauseToken() onlyOwner {
         require(isFinalized);
-        MANAToken(token).unpause();
+        USDToken(token).unpause();
     }
 
     function pauseToken() onlyOwner {
         require(isFinalized);
-        MANAToken(token).pause();
+        USDToken(token).pause();
     }
 
 

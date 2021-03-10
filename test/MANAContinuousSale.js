@@ -4,7 +4,7 @@
 const expect = require('chai').expect
 const { advanceTime, EVMRevert } = require('./utils')
 const MANAContinuousSale = artifacts.require('./MANAContinuousSale.sol')
-const MANAToken = artifacts.require('./MANAToken.sol')
+const USDToken = artifacts.require('./USDToken.sol')
 
 const BigNumber = web3.BigNumber
 
@@ -16,7 +16,7 @@ contract('MANAContinuousSale', function([owner, wallet, buyer, wallet2]) {
   let token, sale
 
   beforeEach(async function() {
-    token = await MANAToken.new()
+    token = await USDToken.new()
     await token.pause()
     await token.mint(owner, new BigNumber(1000000))
 

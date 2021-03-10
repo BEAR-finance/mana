@@ -2,7 +2,7 @@ pragma solidity ^0.4.11;
 
 import "zeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./ContinuousSale.sol";
-import "./MANAToken.sol";
+import "./USDToken.sol";
 
 contract MANAContinuousSale is ContinuousSale, Ownable {
 
@@ -53,10 +53,10 @@ contract MANAContinuousSale is ContinuousSale, Ownable {
     }
 
     function unpauseToken() onlyOwner {
-        MANAToken(token).unpause();
+        USDToken(token).unpause();
     }
 
     function pauseToken() onlyOwner {
-        MANAToken(token).pause();
+        USDToken(token).pause();
     }
 }

@@ -4,11 +4,11 @@ import "zeppelin-solidity/contracts/token/PausableToken.sol";
 import "zeppelin-solidity/contracts/token/MintableToken.sol";
 import "./BurnableToken.sol";
 
-contract MANAToken is BurnableToken, PausableToken, MintableToken {
+contract USDToken is BurnableToken, PausableToken, MintableToken {
 
-    string public constant symbol = "MANA";
+    string public constant symbol = "USD";
 
-    string public constant name = "Decentraland MANA";
+    string public constant name = "Bearland USD by bears.finance";
 
     uint8 public constant decimals = 18;
 

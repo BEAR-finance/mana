@@ -6,7 +6,7 @@ const expect = require('chai').expect
 const { advanceToBlock, ether, should, EVMRevert } = require('./utils')
 const MANACrowdsale = artifacts.require('./MANACrowdsale.sol')
 const MANAContinuousSale = artifacts.require('./MANAContinuousSale.sol')
-const MANAToken = artifacts.require('./MANAToken.sol')
+const USDToken = artifacts.require('./USDToken.sol')
 
 const BigNumber = web3.BigNumber
 
@@ -44,7 +44,7 @@ contract('MANACrowdsale', function([
       preferentialRate,
       wallet
     )
-    token = MANAToken.at(await crowdsale.token())
+    token = USDToken.at(await crowdsale.token())
   })
 
   it('starts with token paused', async function() {
@@ -134,7 +134,7 @@ contract('MANACrowdsale', function([
         preferentialRate,
         wallet
       )
-      token = MANAToken.at(await crowdsale.token())
+      token = USDToken.at(await crowdsale.token())
     })
     it('at start', async function() {
       await advanceToBlock(startBlock - 1)

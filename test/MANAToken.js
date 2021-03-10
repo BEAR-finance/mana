@@ -2,7 +2,7 @@
 'use strict'
 
 const { EVMRevert } = require('./utils')
-const MANAToken = artifacts.require('./MANAToken.sol')
+const USDToken = artifacts.require('./USDToken.sol')
 
 const BigNumber = web3.BigNumber
 
@@ -10,7 +10,7 @@ contract('MANACrowdsale', function([owner, holder]) {
   let token
 
   beforeEach(async function() {
-    token = await MANAToken.new()
+    token = await USDToken.new()
   })
 
   it('cannot burn tokens while paused', async function() {
